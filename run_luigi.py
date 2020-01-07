@@ -45,7 +45,7 @@ class GetWeeklyTracks(luigi.Task):
         return S3Target('s3://luigi-spotify-discover-weekly/{}/weekly_tracks.tsv'.format(strftime("%Y-%m-%d")), client=client)
  
     def run(self):
-        with self.output().open('out.csv', 'w', encoding='utf-8-sig', newline='') as f:
+        with self.output().open('w') as f:
             fnames = ["Track ID", "Track Name","Track URL","Album ID","Album Name","Artist ID","Artist Name"]
             writer = csv.DictWriter(f, fieldnames=fnames, delimiter='\t')
             writer.writeheader()

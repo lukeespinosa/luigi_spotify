@@ -1,0 +1,5 @@
+#luigi config
+*.cfg
+.idea/
+venv/
+*.com
