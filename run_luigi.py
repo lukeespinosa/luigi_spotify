@@ -85,6 +85,7 @@ class SendWeeklyEmail(luigi.Task):
         return S3Target('s3://luigi-spotify-discover-weekly/{}/email_sent_status.txt'.format(strftime("%Y-%m-%d")), client=client)
  
     def run(self):
+        logger.info('Sending Weekly Email...')
         email = gmail().id
         password = gmail().password
         msg = MIMEMultipart('alternative')
