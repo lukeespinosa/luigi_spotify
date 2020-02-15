@@ -4,10 +4,18 @@ import spotipy
 import spotipy.util as util
 import csv
 import smtplib
+import logging
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from datetime import date
 from time import strftime
+
+# trying to change server log output
+logger = logging.getLogger('luigi-interface')
+
+# meta data
+__author__= 'Luke Espinosa'
+__date__= '2020-02-15'
 
 class spotify_cred(luigi.Config):
     user = luigi.Parameter()
